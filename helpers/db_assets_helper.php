@@ -1,18 +1,13 @@
 <?php
 
-class Assets
+function js($script)
 {
-    static function css()
-    {
-      echo "Hello from the example spark!";
-    }
-    
-    static function js()
-    {
-	}
+	$CI =& get_instance();
+	return $CI->db_assets->js($script);
+}
 
-	static function google()
-	{
-	}
-
+function google($script, $version=null, $uncompressed=false)
+{
+	$CI =& get_instance();
+	return $CI->db_assets->google($script, $version, $uncompressed);
 }
