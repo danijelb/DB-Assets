@@ -16,6 +16,10 @@ class Db_assets
 	private $js_dir;
 	private $css_dir;
 	
+	/**
+	 * Constructor method
+	 * @return void
+	 */
 	public function __construct()
 	{
 		$this->CI =& get_instance();
@@ -30,6 +34,12 @@ class Db_assets
 		$this->css_dir = $this->CI->config->item('css_dir');
 	}
 
+	/**
+	 * This method constructs the CSS html chunk
+	 * @var string $stylesheet Stylesheet filename
+	 * @var string $media Defines for what media types the stylesheet is tailored
+	 * @return string
+	 */
 	public function css($stylesheet, $media=null)
 	{
 		/**
@@ -49,6 +59,11 @@ class Db_assets
 		return sprintf($this->templates['css'], $url.$stylesheet, $media);
 	}
 	
+	/**
+	 * This method constructs HTML chunk for loading scripts
+	 * @var string $script Script filename
+	 * @return string
+	 */
 	public function js($script)
 	{
 		/**
@@ -62,6 +77,13 @@ class Db_assets
 		return sprintf($this->templates['script'], $url.$script);
 	}
 
+	/**
+	 * This returns script chunk for a Google hosted JS script
+	 * @var string $script Name of script to load
+	 * @var string $version Version of script to load. If not provided then the latest version at the moment of this version release is set
+	 * @var string $uncompressed Set to true if you need uncompressed script (where supported)
+	 * @return string
+	 */
 	public function google($script, $version=null, $uncompressed=false)
 	{
 		/**
@@ -100,9 +122,15 @@ class Db_assets
 		return sprintf($this->templates['script'], $url);
 	}
 	
-	public function conditional($html, $condition="IE")
+	/**
+	 * Wraps any kind of data into IE conditional comments
+	 * @var string $data Data to wrap
+	 * @var string $condition IE condition
+	 * @return string
+	 */
+	public function conditional($data, $condition="IE")
 	{
-		return sprintf($this->templates['conditional'], $html, $condition);
+		return sprintf($this->templates['conditional'], $data, $condition);
 	}
 
 }

@@ -18,8 +18,8 @@ function google($script, $version=null, $uncompressed=false)
 	return $CI->db_assets->google($script, $version, $uncompressed);
 }
 
-function conditional($html, $condition="IE")
+function conditional($data, $condition="IE")
 {
 	$CI =& get_instance();
-	return $CI->db_assets->conditional($condition, $html);
+	return $CI->db_assets->conditional($condition, $data);
 }
