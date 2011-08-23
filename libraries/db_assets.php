@@ -30,12 +30,27 @@ class Db_assets
 		$this->css_dir = $this->CI->config->item('css_dir');
 	}
 
-    public function css()
-    {
-    }
-    
-    public function js($script)
-    {
+	public function css($stylesheet, $media=null)
+	{
+		/**
+		 * Constructing the URL to load
+		 */
+		$url = base_url() . $this->assets_dir . "/" . $this->css_dir . "/";
+		
+		if($media != null)
+		{
+			$media = sprintf($this->templates['media'], $media);
+		}
+		else
+		{
+			$media = " ";
+		}
+		
+		return sprintf($this->templates['css'], $url.$stylesheet, $media);
+	}
+	
+	public function js($script)
+	{
 		/**
 		 * Constructing the URL to load
 		 */
@@ -83,6 +98,11 @@ class Db_assets
 		 * Returning the chunk of HTML
 		 */
 		return sprintf($this->templates['script'], $url);
+	}
+	
+	public function conditional($html, $condition="IE")
+	{
+		return sprintf($this->templates['conditional'], $html, $condition);
 	}
 
 }

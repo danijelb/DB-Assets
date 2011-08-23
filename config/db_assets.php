@@ -63,6 +63,8 @@ $config['google_libraries'] = array(
 );
 
 $config['html_templates'] = array(
-	'script' => '<script type="text/javascript" src="%s"></script>',
-	'css' => '<link rel="stylesheet" href="%s" type="text/css" />'
+	'script' => "<script type=\"text/javascript\" src=\"%s\"></script>\n",
+	'css' => "<link rel=\"stylesheet\" href=\"%s\" type=\"text/css\"%s/>\n",
+	'media' => ' media="%s" ',
+	'conditional' => "<!--[if %s]>\n\t%s\t<![endif]-->\n"
 );

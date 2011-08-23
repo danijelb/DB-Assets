@@ -1,5 +1,11 @@
 <?php
 
+function css($stylesheet, $media=null)
+{
+	$CI =& get_instance();
+	return $CI->db_assets->css($stylesheet, $media);
+}
+
 function js($script)
 {
 	$CI =& get_instance();
@@ -10,4 +16,10 @@ function google($script, $version=null, $uncompressed=false)
 {
 	$CI =& get_instance();
 	return $CI->db_assets->google($script, $version, $uncompressed);
+}
+
+function conditional($html, $condition="IE")
+{
+	$CI =& get_instance();
+	return $CI->db_assets->conditional($condition, $html);
 }
