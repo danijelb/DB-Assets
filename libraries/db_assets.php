@@ -40,14 +40,14 @@ class Db_assets
 	 * @var string $media Defines for what media types the stylesheet is tailored
 	 * @return string
 	 */
-	public function css($stylesheet, $media=null)
+	public function css($stylesheet, $media = NULL)
 	{
 		/**
 		 * Constructing the URL to load
 		 */
 		$url = base_url() . $this->assets_dir . "/" . $this->css_dir . "/";
 		
-		if($media != null)
+		if($media != NULL)
 		{
 			$media = sprintf($this->templates['media'], $media);
 		}
@@ -84,14 +84,14 @@ class Db_assets
 	 * @var string $uncompressed Set to true if you need uncompressed script (where supported)
 	 * @return string
 	 */
-	public function google($script, $version=null, $uncompressed=false)
+	public function google($script, $version = NULL, $uncompressed = FALSE)
 	{
 		/**
 		 * Checking if library exists
 		 */
 		if( !isset($this->libraries[$script]))
 		{
-			return null;
+			return NULL;
 		}
 			
 		/**
